@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/", (req, res) => {
-  req.send("server is running...");
+  res.send("server is running...");
 });
 //routes
 
