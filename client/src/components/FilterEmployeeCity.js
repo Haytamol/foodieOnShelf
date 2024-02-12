@@ -11,7 +11,9 @@ export default function FilterEmployeeCity({ handleFilter }) {
 
   const getCities = async () => {
     try {
-      const response = await fetch("http://localhost:5000/employeesCities");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/employeesCities"
+      );
       const jsonData = await response.json();
       setCities(jsonData);
       setCities((current) => [...current, { emp_city: "None" }]);

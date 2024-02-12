@@ -11,7 +11,9 @@ export default function FilterLineInvoice({ handleFilter }) {
 
   const getInvoices = async () => {
     try {
-      const response = await fetch("http://localhost:5000/invoice/dates");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/invoice/dates"
+      );
       const jsonData = await response.json();
       setInvoices(jsonData);
       //setInvoices((current) => [...current, { inv_date: "None" }]);
@@ -42,9 +44,7 @@ export default function FilterLineInvoice({ handleFilter }) {
         >
           {invoices.map((e) => {
             return (
-              <MenuItem value={e.inv_date}>
-                {e.inv_date.slice(0, 10)}
-              </MenuItem>
+              <MenuItem value={e.inv_date}>{e.inv_date.slice(0, 10)}</MenuItem>
             );
           })}
         </Select>

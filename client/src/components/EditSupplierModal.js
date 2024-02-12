@@ -17,7 +17,11 @@ const style = {
   p: 4,
 };
 
-export default function EditSupplierModal({ handleSuccess, handleError, item }) {
+export default function EditSupplierModal({
+  handleSuccess,
+  handleError,
+  item,
+}) {
   //vars
   const [sup_name, setName] = useState("");
   const [sup_city, setCity] = useState("");
@@ -62,7 +66,7 @@ export default function EditSupplierModal({ handleSuccess, handleError, item }) 
         sup_contactperson,
       };
       const response = await fetch(
-        `http://localhost:5000/supplier/${sup_code}`,
+        `https://foodie-on-shelf.vercel.app/supplier/${sup_code}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

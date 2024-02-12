@@ -11,7 +11,9 @@ export default function FilterSupplierCity({ handleFilter }) {
 
   const getCities = async () => {
     try {
-      const response = await fetch("http://localhost:5000/supplierCities");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/supplierCities"
+      );
       const jsonData = await response.json();
       setCities(jsonData);
       setCities((current) => [...current, { sup_city: "None" }]);

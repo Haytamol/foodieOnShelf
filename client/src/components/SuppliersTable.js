@@ -41,9 +41,12 @@ export default function SuppliersTable({
   //Delete a supplier
   const deleteSupplier = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/supplier/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://foodie-on-shelf.vercel.app/supplier/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setSuppliers(suppliers.filter((supplier) => supplier.sup_code !== id));
     } catch (err) {
@@ -54,7 +57,7 @@ export default function SuppliersTable({
   //Get default values
   const getSuppliers = async () => {
     try {
-      let link = `http://localhost:5000/supplier`;
+      let link = `https://foodie-on-shelf.vercel.app/supplier`;
       const response = await fetch(link);
       const jsonData = await response.json();
       setSuppliers(jsonData);
@@ -97,13 +100,11 @@ export default function SuppliersTable({
             >
               <StyledTableCell align="center">{row.sup_code}</StyledTableCell>
               <StyledTableCell align="center">{row.sup_name}</StyledTableCell>
+              <StyledTableCell align="center">{row.sup_city}</StyledTableCell>
+              <StyledTableCell align="center">{row.sup_street}</StyledTableCell>
               <StyledTableCell align="center">
-                {row.sup_city}
+                {row.sup_zipcode}
               </StyledTableCell>
-              <StyledTableCell align="center">
-                {row.sup_street}
-              </StyledTableCell>
-              <StyledTableCell align="center">{row.sup_zipcode}</StyledTableCell>
               <StyledTableCell align="center">
                 {row.sup_contactperson}
               </StyledTableCell>

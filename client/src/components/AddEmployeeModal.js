@@ -55,7 +55,9 @@ export default function AddEmployeeModal({ handleSuccess, handleError }) {
 
   const getManagers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/managers");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/managers"
+      );
       const jsonData = await response.json();
       setManagers(jsonData);
     } catch (err) {
@@ -84,11 +86,14 @@ export default function AddEmployeeModal({ handleSuccess, handleError }) {
         emp_password,
         manager,
       };
-      const response = await fetch("http://localhost:5000/employee", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/employee",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();

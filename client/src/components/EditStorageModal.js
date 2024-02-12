@@ -81,7 +81,7 @@ export default function EditStorageModal({ handleSuccess, handleError, item }) {
         stg_full,
       };
       const response = await fetch(
-        `http://localhost:5000/storagelocation/${stg_id}`,
+        `https://foodie-on-shelf.vercel.app/storagelocation/${stg_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

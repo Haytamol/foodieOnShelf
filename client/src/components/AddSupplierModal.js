@@ -52,11 +52,14 @@ export default function AddSupplierModal({ handleSuccess, handleError }) {
         sup_zipcode,
         sup_contactperson,
       };
-      const response = await fetch("http://localhost:5000/supplier", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/supplier",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();

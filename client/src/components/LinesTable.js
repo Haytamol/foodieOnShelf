@@ -38,9 +38,12 @@ export default function LinesTable({ dateFilter, handleSuccess, handleError }) {
   //Delete a line
   const deleteLine = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/line/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://foodie-on-shelf.vercel.app/line/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setLines(lines.filter((line) => line.line_number !== id));
     } catch (err) {
@@ -51,7 +54,7 @@ export default function LinesTable({ dateFilter, handleSuccess, handleError }) {
   //Get default values
   const getLines = async () => {
     try {
-      let link = `http://localhost:5000/line`;
+      let link = `https://foodie-on-shelf.vercel.app/line`;
       const response = await fetch(link);
       const jsonData = await response.json();
       setLines(jsonData);

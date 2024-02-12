@@ -69,7 +69,9 @@ export default function EditEmployeeModal({
 
   const getManagers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/managers");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/managers"
+      );
       const jsonData = await response.json();
 
       setManagers(jsonData);
@@ -95,7 +97,7 @@ export default function EditEmployeeModal({
         manager,
       };
       const response = await fetch(
-        `http://localhost:5000/Employee/${emp_code}`,
+        `https://foodie-on-shelf.vercel.app/Employee/${emp_code}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

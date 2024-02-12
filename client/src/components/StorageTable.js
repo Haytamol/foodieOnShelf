@@ -43,7 +43,7 @@ export default function StorageTable({
   const deleteStorage = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/storagelocation/${id}`,
+        `https://foodie-on-shelf.vercel.app/storagelocation/${id}`,
         {
           method: "DELETE",
         }
@@ -58,7 +58,7 @@ export default function StorageTable({
   //Get default values
   const getStorages = async () => {
     try {
-      let link = `http://localhost:5000/storagelocation`;
+      let link = `https://foodie-on-shelf.vercel.app/storagelocation`;
       const response = await fetch(link);
       const jsonData = await response.json();
       setStorages(jsonData);

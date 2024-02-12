@@ -42,9 +42,12 @@ export default function ProductTabe({
   //Delete a product
   const deleteProduct = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/product/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://foodie-on-shelf.vercel.app/product/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setProducts(products.filter((product) => product.prd_id !== id));
     } catch (err) {
@@ -55,7 +58,7 @@ export default function ProductTabe({
   //Get default values
   const getProducts = async () => {
     try {
-      let link = `http://localhost:5000/product`;
+      let link = `https://foodie-on-shelf.vercel.app/product`;
       const response = await fetch(link);
       const jsonData = await response.json();
       setProducts(jsonData);

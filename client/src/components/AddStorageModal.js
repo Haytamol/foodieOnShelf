@@ -88,11 +88,14 @@ export default function AddStorageModal({ handleSuccess, handleError }) {
         stg_zipcode,
         stg_full,
       };
-      const response = await fetch("http://localhost:5000/storagelocation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/storagelocation",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();

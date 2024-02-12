@@ -68,7 +68,9 @@ export default function EditProductModal({ handleSuccess, handleError, item }) {
 
   const getSuppliers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/Supplier/names");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/Supplier/names"
+      );
       const jsonData = await response.json();
 
       setSuppliers(jsonData);
@@ -80,7 +82,7 @@ export default function EditProductModal({ handleSuccess, handleError, item }) {
   const getStorage = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/storagelocation/storageAvail"
+        "https://foodie-on-shelf.vercel.app/storagelocation/storageAvail"
       );
       const jsonData = await response.json();
 
@@ -107,11 +109,14 @@ export default function EditProductModal({ handleSuccess, handleError, item }) {
         sup_name,
         stg_id,
       };
-      const response = await fetch(`http://localhost:5000/product/${prd_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        `https://foodie-on-shelf.vercel.app/product/${prd_id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();

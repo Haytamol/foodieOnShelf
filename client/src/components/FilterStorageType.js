@@ -11,7 +11,9 @@ export default function FilterStorageType({ handleFilter }) {
 
   const getTypes = async () => {
     try {
-      const response = await fetch("http://localhost:5000/storagelocation/types");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/storagelocation/types"
+      );
       const jsonData = await response.json();
       setTypes(jsonData);
       setTypes((current) => [...current, { stg_type: "None" }]);

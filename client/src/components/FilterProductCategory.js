@@ -11,7 +11,9 @@ export default function FilterProductCategory({ handleFilter }) {
 
   const getCategories = async () => {
     try {
-      const response = await fetch("http://localhost:5000/product/categories");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/product/categories"
+      );
       const jsonData = await response.json();
       setCategories(jsonData);
       setCategories((current) => [...current, { prd_category: "None" }]);

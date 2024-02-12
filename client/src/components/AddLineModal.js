@@ -49,7 +49,9 @@ export default function AddLineModal({ handleSuccess, handleError }) {
 
   const getDates = async () => {
     try {
-      const response = await fetch("http://localhost:5000/invoice/dates");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/invoice/dates"
+      );
       const jsonData = await response.json();
 
       setInvoiceDates(
@@ -68,7 +70,9 @@ export default function AddLineModal({ handleSuccess, handleError }) {
 
   const getProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/product/names");
+      const response = await fetch(
+        "https://foodie-on-shelf.vercel.app/product/names"
+      );
       const jsonData = await response.json();
 
       setProducts(jsonData);
@@ -92,7 +96,7 @@ export default function AddLineModal({ handleSuccess, handleError }) {
         prd_name,
       };
       console.log("to", inv_date);
-      const response = await fetch("http://localhost:5000/line", {
+      const response = await fetch("https://foodie-on-shelf.vercel.app/line", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

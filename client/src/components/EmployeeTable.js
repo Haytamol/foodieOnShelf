@@ -42,9 +42,12 @@ export default function EmployeeTable({
   //Delete an employee
   const deleteEmployee = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/employee/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://foodie-on-shelf.vercel.app/employee/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setEmployees(employees.filter((employee) => employee.emp_code !== id));
     } catch (err) {
@@ -55,7 +58,7 @@ export default function EmployeeTable({
   //Get default values
   const getEmployees = async () => {
     try {
-      let link = `http://localhost:5000/employee`;
+      let link = `https://foodie-on-shelf.vercel.app/employee`;
       const response = await fetch(link);
       const jsonData = await response.json();
       setEmployees(jsonData);
