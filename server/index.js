@@ -7,9 +7,6 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json());
 
-app.use("/", (req, res) => {
-  res.send("server is running...");
-});
 //routes
 
 //Product
@@ -767,6 +764,10 @@ app.delete("/PhoneNumber/:Sup_phone", async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
+});
+
+app.use("/", (req, res) => {
+  res.send("server is running...");
 });
 
 const port = process.env.PORT || 5000;
